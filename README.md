@@ -41,7 +41,7 @@ https://pan.baidu.com/s/1gvuKjAlSGGEKpBZ_LIsQTw 提取码: 6sc6
 
 <div align="center">
   <img src="assets/demo1.png" width="400" alt="效果演示1" style="margin: 10px;">
-  <img src="assets/demo2.jpg" width="400" alt="效果演示2" style="margin: 10px;">
+  <img src="assets/demo2.png" width="400" alt="效果演示2" style="margin: 10px;">
 </div>
 
 ***
