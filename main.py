@@ -8,7 +8,7 @@ from .food_data import FoodDataManager
 from .rate_limiter import RateLimiter
 from .responder import Responder
 
-@register("astrbot_plugin_chisa_still_eating", "Rua432", "2.1.1_Beta", "跨次元美食与情绪沉浸系统")
+@register("astrbot_plugin_chisa_still_eating", "Rua432", "2.2_Beta", "跨次元美食与情绪沉浸系统")
 class FlavorFusionUltimate(Star):
     def __init__(self, context: Context, config: dict):
         super().__init__(context)
@@ -83,7 +83,7 @@ class FlavorFusionUltimate(Star):
         # ==========================================
         if msg_text in ["千小妹还在吃帮助", "千咲吃什么帮助", "干饭帮助", "美食帮助"]:
             help_text = (
-                "🍱 【千小妹还在吃 v2.1_Beta】干饭指南\n\n"
+                "🍱 【千小妹还在吃 v2.1.3_Beta】干饭指南\n\n"
                 "🍔 基础点餐：\n"
                 "· 吃什么 / 喝什么 (全宇宙随机摇号)\n"
                 "· 来点现实的食物 / 来点现实的饮品 (绝对锁定三次元外卖)\n\n"
