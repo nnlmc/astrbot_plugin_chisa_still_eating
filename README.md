@@ -134,5 +134,7 @@ https://pan.baidu.com/s/1gvuKjAlSGGEKpBZ_LIsQTw 提取码: 6sc6
 
 <div align="left">
   <img src="assets/wechat_pay.png" width="200" height="200" alt="微信赞助码" style="margin-right: 20px;">
+  微信
   <img src="assets/alipay.png" width="200" height="200" alt="支付宝赞助码">
+  ZFB
 </div>
