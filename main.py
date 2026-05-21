@@ -8,7 +8,7 @@ from .food_data import FoodDataManager
 from .rate_limiter import RateLimiter
 from .responder import Responder
 
-@register("astrbot_plugin_chisa_still_eating", "Rua432", "2.1_Beta", "跨次元美食与情绪沉浸系统")
+@register("astrbot_plugin_chisa_still_eating", "Rua432", "2.1.1_Beta", "跨次元美食与情绪沉浸系统")
 class FlavorFusionUltimate(Star):
     def __init__(self, context: Context, config: dict):
         super().__init__(context)
@@ -239,7 +239,7 @@ class FlavorFusionUltimate(Star):
         if self.config.get("enable_ai", False) and random.randint(1, 100) <= self.config.get("ai_probability", 5):
             is_crossover = (origin_key != "common" and origin_key != active_key)
             ai_text = await self.responder.generate_response(
-                self.context, bot_host, world_host, food_name, category, chef_name, is_crossover
+                self.context, event, bot_host, world_host, food_name, category, chef_name, is_crossover
             )
             if ai_text:
                 final_text = ai_text
