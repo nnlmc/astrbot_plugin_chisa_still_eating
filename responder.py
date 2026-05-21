@@ -1,8 +1,7 @@
 import logging
-import random
 
 class Responder:
-    """高阶AI拟人化沉浸回复接入总线：调用当前机器人绑定的LLM进行灵魂级人设对白"""
+    """高阶AI拟人化沉浸回复接入总线：仅提供情境，完全依赖 AstrBot 原生人格进行回复"""
     def __init__(self):
         self.logger = logging.getLogger("astrbot")
 
@@ -10,29 +9,32 @@ class Responder:
         # 精细化物品描述
         cat_desc = "饮品" if category == "drink" else "黑暗料理" if category == "dark" else "食物"
         
-        # 告诉 LLM 当前的情况，但不强迫它说出来
-        context_desc = f"现在你手里有一份你们世界的{cat_desc}【{food_name}】。"
+        # 告诉 LLM 当前的突发情况（只给事件，不教它做事）
         if is_crossover:
-            context_desc = f"时空乱流把你卷入了异世界，你偶然得到了异世界{cat_desc}【{food_name}】。"
+            context_desc = f"你偶然得到了一份来自异世界（{world_name}）的{cat_desc}【{food_name}】。"
         elif chef_name != "none":
-            context_desc = f"【{chef_name}】刚刚在厨房做好了{cat_desc}【{food_name}】，并交给了你。"
+            context_desc = f"【{chef_name}】刚刚做好了{cat_desc}【{food_name}】，并交给了你。"
+        else:
+            context_desc = f"你手里现在有一份{cat_desc}【{food_name}】。"
 
-        # 针对动词和情绪的强制补丁
-        action_hint = "你现在要把这个东西给玩家（漂泊者/旅行者/开拓者/群友等）。"
+        # 🎯 针对动词、情绪和【菜品评价】的脑补引导
         if category == "drink":
-            action_hint += "⚠️记住这是饮品，台词必须用“喝”、“干杯”等动词，绝不能说“吃”。"
+            action_hint = "请你把这杯饮品递给群友（玩家），并顺嘴凭借你的想象，简单评价一下它的香气、外观或你猜它的味道。⚠️注意：台词中必须用“喝”、“干杯”等词汇，绝不能说“吃”。"
         elif category == "dark":
-            action_hint += "⚠️这是极其可怕的黑暗料理！你必须表现出极其惊恐、嫌弃或疯狂吐槽的语气，阻止对方或者想拉人垫背。"
+            action_hint = "请把这份东西拿给群友（玩家）。⚠️注意：这是极度可怕的黑暗料理！你必须表现出嫌弃、警惕或疯狂吐槽的语气，并脑补描述一下它诡异可怕的卖相。"
+        else:
+            action_hint = "请你顺势把这个食物递给群友（玩家），并在台词中凭借你的想象，简单评价一下它的卖相、香气，或者表达你想不想吃。"
 
-        # 🚀 全新升级的“去NPC化”激进提示词
+        # 🚀 纯情境提示词：彻底移除强制角色扮演，100% 依赖 AstrBot 系统原生人格
         prompt = (
-            f"请你完全沉浸扮演【{world_name}】的【{bot_name}】。\n"
-            f"当前情境：{context_desc} {action_hint}\n"
-            f"⚠️为了打破死板的机械回复，制造聊天群里的惊喜感，你必须遵守以下死命令：\n"
-            f"1. 【去NPC化】绝不能像系统提示音或服务员一样生硬地报菜名！严禁说“这是一份由xx特制的xx”这种刻板废话！\n"
-            f"2. 【性格拉满】用极其符合你角色人设的口语、专属口癖、甚至傲娇/慵懒/贪吃/吐槽的态度来聊天！\n"
-            f"3. 【字数极简】把你当做正在QQ群里水群的真实群友，台词控制在 15 到 40 字以内！越精炼自然越好。\n"
-            f"4. 【格式限制】直接输出纯台词文本！严禁任何括号、旁白、动作描写（如“递给你”）、以及任何多余的系统解释！"
+            f"[系统情境注入：{context_desc} {action_hint}]\n"
+            f"请你完全保持你当前已被设定的系统人格与口癖，针对这个情境，直接对群友说一句互动台词。\n"
+            f"【必须遵守的规则】：\n"
+            f"1. 零AI前摇：严禁说“好的”、“没问题”，第一个字必须是你的台词。\n"
+            f"2. 拒绝报菜名：不要机械地复述“这是一份由xx特制的xx”，像真人水群一样自然引出。\n"
+            f"3. 纯净输出：严禁包含任何中括号、括号()、旁白动作描写、或者多余的系统解释。\n"
+            f"4. 字数控制：台词严格控制在 20-60 字以内，既要精炼又要有画面感。\n"
+            f"请直接说出这句台词："
         )
 
         try:
