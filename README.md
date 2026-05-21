@@ -10,7 +10,7 @@
 
 **💡 核心资源包下载提示（必看）**
 
-源码中仅包含核心的结构文件与基础防刷屏表情包，不含大体积的美食图片库。为了保证插件完美的图文出图体验，**强烈建议下载预设资源包（Plugin_data）并解压覆盖到机器人的 `data/plugin_data/` 目录下！**
+源码中仅包含核心的结构文件与基础干饭人表情包，不含大体积的美食图片库和对应表情包。为了保证插件完美的图文出图体验，**强烈建议下载预设资源包（Plugin_data）并解压覆盖到机器人的 `data/plugin_data/` 目录下！**
 
 * 📥 **官方资源包下载**：[点击此处前往 Releases 下载](https://github.com/dddada123/astrbot_plugin_chisa_still_eating/releases/download/Plugindata/plugin_data.zip)
 
