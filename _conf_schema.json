@@ -66,7 +66,7 @@
     },
     "enable_ai": {
         "description": "🤖 开启 AI 优先智能拟人回复",
-        "hint": "开启后将自动接入当前 AstrBot 所配置的底层大模型与当前推荐官人设进行现场对白。",
+        "hint": "开启后将自动接入当前 AstrBot 所配置的底层人格数据进行现场对白。",
         "type": "bool",
         "default": false
     },
