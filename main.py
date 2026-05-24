@@ -10,10 +10,10 @@ from .food_data import FoodDataManager
 from .rate_limiter import RateLimiter
 from .responder import Responder
 
-# 版本号升级为 2.3.1Beta
-__version__ = "2.3.1Beta"
+# 版本号升级为 2.3.1_Beta
+__version__ = "2.3.1_Beta"
 
-@register("astrbot_plugin_chisa_still_eating", "Rua432", __version__, "跨次元美食与情绪沉浸系统 (MOD版)")
+@register("astrbot_plugin_chisa_still_eating", "Rua432", "2.3.1_Beta", "跨次元美食与情绪沉浸系统")
 class FlavorFusionUltimate(Star):
     def __init__(self, context: Context, config: dict):
         super().__init__(context)
