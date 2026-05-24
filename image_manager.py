@@ -2,7 +2,7 @@ import os
 import re
 import random
 
-__version__ = "2.3.1Beta"
+__version__ = "2.3.1_Beta"
 
 class ImageManager:
     def __init__(self, plugin_dir: str = None):
