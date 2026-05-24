@@ -1,3 +1,6 @@
+<div align="center">
+  <img src="logo.png" width="300">
+</div>
 # 🚀 🍱 千小妹还在吃 (Chisa Still Eating) v2.3.1_Beta 更新+新系统说明
 本次更新标志着本插件正式迈入 “MOD 自由创作时代”！我们重构了核心数据交互逻辑，赋予了各位向导更大的自定义空间。
 
