@@ -34,7 +34,7 @@
 
 源码中仅包含核心的结构文件与基础干饭人表情包，不含大体积的美食图片库和对应表情包。为了保证插件完美的图文出图体验，**强烈建议下载预设资源包（Plugin_data）并解压覆盖到机器人的 `data/plugin_data/` 目录下！**
 
-* 📥 **官方资源包下载**：[点击此处前往 Releases 下载](https://github.com/dddada123/astrbot_plugin_chisa_still_eating/releases/download/Plugindata/plugin_data.zip)
+* 📥 **官方资源包下载**：[点击此处前往 Releases 下载 配合2.3.1预设了一个佩可莉姆干饭人在包内作为示范，网盘版没更新但是不影响自己自定义](https://github.com/dddada123/astrbot_plugin_chisa_still_eating/releases/download/Main/plugin_data.zip)
 
 * 🔗 **备用网盘链接**：
 链接：https://pan.quark.cn/s/9800f1abdda0
