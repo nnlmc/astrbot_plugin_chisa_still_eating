@@ -13,7 +13,7 @@ from .responder import Responder
 # 版本号升级为 2.3.1
 __version__ = "2.3.1"
 
-@register("astrbot_plugin_chisa_still_eating", "Rua432", "2.3.1_Beta", "跨次元美食与情绪沉浸系统")
+@register("astrbot_plugin_chisa_still_eating", "Rua432", "2.3.1", "跨次元美食与情绪沉浸系统")
 class FlavorFusionUltimate(Star):
     def __init__(self, context: Context, config: dict):
         super().__init__(context)
