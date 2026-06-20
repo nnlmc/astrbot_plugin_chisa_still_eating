@@ -142,6 +142,24 @@ class FlavorFusionUltimate(Star):
         msg_text = event.message_str
         if not msg_text: return
         msg_text = msg_text.strip()
+
+        # === 🛡️ [新增] 黑白名单防火墙逻辑 ===
+        msg_obj = event.message_obj
+        group_id = str(msg_obj.group_id).strip() if msg_obj.group_id else None
+        
+        if group_id:
+            # 1. 黑名单校验（最高优先级：一票否决）
+            if self.config.get("enable_blacklist", False):
+                blacklist = [str(x).strip() for x in self.config.get("blacklist_groups", []) if str(x).strip()]
+                if group_id in blacklist:
+                    return # 命中黑名单，直接无视并终止
+            
+            # 2. 白名单校验（次优先级：严格准入）
+            if self.config.get("enable_whitelist", False):
+                whitelist = [str(x).strip() for x in self.config.get("whitelist_groups", []) if str(x).strip()]
+                if group_id not in whitelist:
+                    return # 开启了白名单但当前群不在其中，直接终止
+        # =================================
         
         if msg_text in ["千小妹还在吃帮助", "千咲吃什么帮助", "干饭帮助", "美食帮助"]:
             help_text = (
